@@ -56,15 +56,61 @@ template <typename Y> Y &Array<Y>::operator[](unsigned int index) const
 		throw std::exception();
 	return (_array[index]);
 }
-
+#define MAX_VAL 750
 int main(void)
 {
-	Array<int> array_test(10);
-	for (unsigned int i = 0; i < 10; i++)
-		array_test[i] = i + 2;
+	// Array<int> array_test(10);
+	// for (unsigned int i = 0; i < 10; i++)
+	// 	array_test[i] = i + 2;
 
-	for (unsigned int i = 0; i < 10; i++)
-		std::cout << array_test[i] << std::endl;
+	// for (unsigned int i = 0; i < 10; i++)
+	// 	std::cout << array_test[i] << std::endl;
 
-	return (0);
+	// return (0);
+	Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }
