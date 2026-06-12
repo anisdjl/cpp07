@@ -3,9 +3,15 @@
 
 #include <iostream>
 
-template <typename X, typename Y, typename Z> void iter (X &addr, Y len, Z func)
+template <typename X, typename Y> void iter (X *addr, const std::size_t len, Y func)
 {
-	
+	for (std::size_t i = 0; i < len; i++)
+		func(addr[i]);
 }
 
+template <typename X, typename Y> void iter (const X *addr, const std::size_t len, Y func)
+{
+	for (std::size_t i = 0; i < len; i++)
+		func(addr[i]);
+}
 #endif

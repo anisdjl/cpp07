@@ -18,5 +18,3 @@ template<typename T> void swap(T &x, T &y) {
 }
 
 #endif
-
-
