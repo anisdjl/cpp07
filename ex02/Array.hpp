@@ -2,7 +2,8 @@
 # define ARRAY_HPP
 
 #include <iostream>
-
+#include <ctime>
+#include <cstdlib>
 template <typename Y>
 class Array
 {

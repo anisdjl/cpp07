@@ -56,6 +56,7 @@ template <typename Y> Y &Array<Y>::operator[](unsigned int index) const
 		throw std::exception();
 	return (_array[index]);
 }
+
 #define MAX_VAL 750
 int main(void)
 {
