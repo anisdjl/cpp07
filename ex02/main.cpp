@@ -60,14 +60,15 @@ template <typename Y> Y &Array<Y>::operator[](unsigned int index) const
 #define MAX_VAL 750
 int main(void)
 {
-	// Array<int> array_test(10);
-	// for (unsigned int i = 0; i < 10; i++)
-	// 	array_test[i] = i + 2;
+	Array<int> array_test(10);
+	for (unsigned int i = 0; i < 10; i++)
+		array_test[i] = i + 2;
 
-	// for (unsigned int i = 0; i < 10; i++)
-	// 	std::cout << array_test[i] << std::endl;
+	for (unsigned int i = 0; i < 10; i++)
+		std::cout << array_test[i] << std::endl;
 
-	// return (0);
+	std::cout << std::endl;
+
 	Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
